@@ -1,6 +1,8 @@
 # mrbean
 
-A new Flutter project.
+Account for testing
+test@gm.co
+test123
 
 ## Getting Started
 
