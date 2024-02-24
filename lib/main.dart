@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:mrbean/models/user.dart';
-import 'package:mrbean/screens/wrapper.dart';
-import 'package:mrbean/services/auth.dart';
+import 'package:mrbeanhackathon/models/user.dart';
+import 'package:mrbeanhackathon/screens/wrapper.dart';
+import 'package:mrbeanhackathon/services/auth.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
 

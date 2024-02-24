@@ -68,7 +68,7 @@ class DefaultFirebaseOptions {
     projectId: 'mr-bean-9227c',
     storageBucket: 'mr-bean-9227c.appspot.com',
     iosClientId: '937572872170-7dtel3m29pq8hi81me6n8anch48dvs82.apps.googleusercontent.com',
-    iosBundleId: 'com.example.mrbean',
+    iosBundleId: 'com.example.mrbeanhackathon',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
@@ -78,6 +78,6 @@ class DefaultFirebaseOptions {
     projectId: 'mr-bean-9227c',
     storageBucket: 'mr-bean-9227c.appspot.com',
     iosClientId: '937572872170-hr2ok845tqsf2u1tg3d3ekr8eac55a9r.apps.googleusercontent.com',
-    iosBundleId: 'com.example.mrbean.RunnerTests',
+    iosBundleId: 'com.example.mrbeanhackathon.RunnerTests',
   );
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mrbean/screens/widgets/shopItem_widget.dart';
+import 'package:mrbeanhackathon/screens/widgets/shopItem_widget.dart';
 import 'trade_page.dart';
 class HomePage extends StatelessWidget {
   final Function(int) onChangePage;

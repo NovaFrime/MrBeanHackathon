@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mrbean/pages/home_page.dart';
-import 'package:mrbean/pages/trade_page.dart';
-import 'package:mrbean/pages/guide_page.dart';
-import 'package:mrbean/pages/account_page.dart';
-import 'package:mrbean/services/auth.dart';
+import 'package:mrbeanhackathon/pages/home_page.dart';
+import 'package:mrbeanhackathon/pages/trade_page.dart';
+import 'package:mrbeanhackathon/pages/guide_page.dart';
+import 'package:mrbeanhackathon/pages/account_page.dart';
+import 'package:mrbeanhackathon/services/auth.dart';
 class Home extends StatefulWidget {
   final AuthService _auth = AuthService();
 

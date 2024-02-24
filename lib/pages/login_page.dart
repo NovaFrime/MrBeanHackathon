@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:mrbean/services/auth.dart';
-import 'package:mrbean/screens/authenticate/authenticate.dart';
+import 'package:mrbeanhackathon/services/auth.dart';
+import 'package:mrbeanhackathon/screens/authenticate/authenticate.dart';
 
 class LoginPage extends StatefulWidget {
   final Function toggledView;

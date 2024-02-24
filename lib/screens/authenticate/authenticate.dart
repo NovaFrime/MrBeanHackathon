@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mrbean/pages/login_page.dart';
-import 'package:mrbean/pages/register_page.dart';
+import 'package:mrbeanhackathon/pages/login_page.dart';
+import 'package:mrbeanhackathon/pages/register_page.dart';
 class Authenticate extends StatefulWidget {
 
   @override

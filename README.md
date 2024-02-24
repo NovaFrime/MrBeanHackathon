@@ -1,4 +1,4 @@
-# mrbean
+# mrbeanhackathon
 
 Account for testing
 test@gm.co
