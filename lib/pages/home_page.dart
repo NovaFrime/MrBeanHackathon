@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:mrbeanhackathon/screens/widgets/shopItem_widget.dart';
 import 'trade_page.dart';
+
 class HomePage extends StatelessWidget {
   final Function(int) onChangePage;
   const HomePage({super.key, required this.onChangePage});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,8 +44,7 @@ class HomePage extends StatelessWidget {
                       Row(
                         children: <Widget>[
                           CircleAvatar(
-                            backgroundImage:
-                            AssetImage('assets/avatars/dog.png'),
+                            backgroundImage: AssetImage('assets/avatars/dog.png'),
                             radius: 40,
                           ),
                           Padding(
@@ -92,10 +93,11 @@ class HomePage extends StatelessWidget {
                                   text: TextSpan(
                                     children: [
                                       WidgetSpan(
-                                          child: Icon(
-                                            Icons.account_balance_wallet,
-                                            size: 17,
-                                          )),
+                                        child: Icon(
+                                          Icons.account_balance_wallet,
+                                          size: 17,
+                                        ),
+                                      ),
                                       TextSpan(
                                         text: " 100 ",
                                         style: TextStyle(
@@ -125,24 +127,39 @@ class HomePage extends StatelessWidget {
                               color: Colors.grey.withOpacity(0.3),
                               spreadRadius: 1,
                               blurRadius: 5,
-                              offset:
-                              Offset(0, 1), // changes position of shadow
+                              offset: Offset(0, 1),
                             ),
                           ],
                         ),
                         height: 160,
+                        width: 320,
+                        child: Image.network(
+                          'https://firebasestorage.googleapis.com/v0/b/mr-bean-9227c.appspot.com/o/pictures%2Fimg.png?alt=media&token=a90075a5-0efc-4102-9443-3750657ad571',
+                          fit: BoxFit.fill,
+                          loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) {
+                              return child; // When the image is fully loaded, show the image
+                            } else {
+                              return Center(
+                                child: CircularProgressIndicator(
+                                  value: loadingProgress.expectedTotalBytes != null
+                                      ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                                      : null,
+                                ),
+                              );
+                            }
+                          },
+                        ),
                       ),
                       SizedBox(height: 10),
                       ElevatedButton(
-                        onPressed: () => {
-                        onChangePage(0)
-                        },
+                        onPressed: () => {onChangePage(0)},
                         style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.infinity,
-                                42), // adjust the height as needed
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15)),
-                            backgroundColor: const Color(0xffDE9D45)),
+                          minimumSize: const Size(double.infinity, 42),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15)),
+                          backgroundColor: const Color(0xffDE9D45),
+                        ),
                         child: const Text(
                           'CREATE COLLECTION FORM',
                           textAlign: TextAlign.center,
@@ -228,6 +245,19 @@ class _CarouselState extends State<Carousel> {
           imageUrl,
           fit: BoxFit.cover,
           width: double.infinity,
+          loadingBuilder: (BuildContext context, Widget child, ImageChunkEvent? loadingProgress) {
+            if (loadingProgress == null) {
+              return child; // When the image is fully loaded, show the image
+            } else {
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded / (loadingProgress.expectedTotalBytes ?? 1)
+                      : null,
+                ),
+              );
+            }
+          },
         ),
       ),
     );
@@ -256,3 +286,4 @@ class _CarouselState extends State<Carousel> {
     );
   }
 }
+

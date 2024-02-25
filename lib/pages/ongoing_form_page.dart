@@ -79,7 +79,7 @@ Widget _buildOngoingForm() {
             ),
             SizedBox(height: 5,),
             Text(
-              'Address: xyz',
+              'Address: *****',
               style: TextStyle(
                   fontFamily: 'Inter',
                   fontSize: 12

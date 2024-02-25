@@ -79,13 +79,13 @@ class _AccountPageState extends State<AccountPage> {
               ),
               Positioned(
                 top: 10,
-                left: 301,
+                left: 270,
                 child: RichText(
                   text:
                       TextSpan(
-                        text: 'Sign In here !',
+                        text: 'Sign Out',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: Colors.red,
                           decoration: TextDecoration.underline,
                           fontSize: 15,
                         ),
@@ -267,7 +267,7 @@ Widget _buildEarned() {
 
 Widget _buildBoughtList() {
   return Container(
-    height: 184,
+    height: 164,
     width: 354,
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(19),

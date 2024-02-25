@@ -1,10 +1,10 @@
 // trade_page.dart
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:file_picker/file_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:file_picker/file_picker.dart';
 
 class TradePage extends StatefulWidget {
   const TradePage({Key? key}) : super(key: key);
@@ -30,55 +30,44 @@ class _TradePage extends State<TradePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color(0xffEEDACA),
-        body: SingleChildScrollView(
-          child: Form(
-              key: _formKey,
-              child: Container(
-                padding: const EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      _buildName(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildAddress(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildNumber(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildEmail(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildAmount(),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildImageUpload(context),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildDateTimeFields(context),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      _buildSubmitBtn()
-                    ]),
-              )),
-        ));
+      backgroundColor: const Color(0xffEEDACA),
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(15),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _buildName(),
+                const SizedBox(height:  10),
+                _buildAddress(),
+                const SizedBox(height:  10),
+                _buildNumber(),
+                const SizedBox(height:  10),
+                _buildEmail(),
+                const SizedBox(height:  10),
+                _buildAmount(),
+                const SizedBox(height:  10),
+                _buildImageUpload(context),
+                const SizedBox(height:  10),
+                _buildDateTimeFields(context),
+                const SizedBox(height:  10),
+                _buildSubmitBtn(),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
-  Future<void> uploadForm () async {
+  Future<void> uploadForm() async {
     final User? user = _auth.currentUser;
     forms
         .add({
@@ -92,28 +81,44 @@ class _TradePage extends State<TradePage> {
       "date": _dateController.value.text,
       "time": _timeController.value.text
     })
-        .then((value) => {print(value), print("Form added success")})
-        .catchError((error) => {print(error), print("Form added fail")});
+        .then((value) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Form sent"),
+          duration: Duration(seconds:  2),
+        ),
+      );
+    })
+        .catchError((error) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Form failed to send"),
+          duration: Duration(seconds:  2),
+        ),
+      );
+    });
   }
 
   Widget _buildSubmitBtn() {
     return ElevatedButton(
-      onPressed: () => {
+      onPressed: () {
         if (_formKey.currentState!.validate()) {
-          uploadForm()
+          uploadForm();
         }
       },
       style: ElevatedButton.styleFrom(
-          minimumSize:
-          const Size(double.infinity, 42), // adjust the height as needed
-          shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-          backgroundColor: const Color(0xffDE9D45)),
+        minimumSize: const Size(double.infinity,  42),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+        backgroundColor: const Color(0xffDE9D45),
+      ),
       child: const Text(
         'CREATE COLLECTION FORM',
         textAlign: TextAlign.center,
         style: TextStyle(
-            color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+          color: Colors.white,
+          fontSize:  18,
+          fontWeight: FontWeight.bold,
+        ),
       ),
     );
   }
